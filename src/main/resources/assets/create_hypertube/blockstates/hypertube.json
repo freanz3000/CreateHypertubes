@@ -1,0 +1,17 @@
+{
+  "multipart": [
+    {
+      "when": { "north_south": "false", "east_west": "false", "up_down": "false"},
+      "apply": { "model": "create_hypertube:block/tube_core" }
+    },
+    {   "when": { "north_south": "true" },
+      "apply": { "model": "create_hypertube:block/tube_part", "uvlock": false }
+    },
+    {   "when": { "east_west": "true" },
+      "apply": { "model": "create_hypertube:block/tube_part", "y": 90, "uvlock": false }
+    },
+    {   "when": { "up_down": "true" },
+      "apply": { "model": "create_hypertube:block/tube_part", "x": 90, "uvlock": false }
+    }
+  ]
+}
