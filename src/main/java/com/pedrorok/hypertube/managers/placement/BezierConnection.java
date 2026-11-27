@@ -16,7 +16,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.core.Direction;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
