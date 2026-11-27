@@ -1,5 +1,8 @@
 package com.pedrorok.hypertube.blocks.blockentities;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
 import com.pedrorok.hypertube.blocks.HyperEntranceBlock;
 import com.pedrorok.hypertube.managers.TravelManager;
 import com.pedrorok.hypertube.managers.sound.TubeSoundManager;
@@ -17,8 +20,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 
 import java.util.List;
 import java.util.Optional;
@@ -60,7 +61,7 @@ public class HyperEntranceBlockEntity extends KineticBlockEntity {
         super.remove();
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private void removeClient() {
         TubeSoundManager.getAmbientSound(tubeSoundId).stopSound();
         TubeSoundManager.removeAmbientSound(tubeSoundId);
