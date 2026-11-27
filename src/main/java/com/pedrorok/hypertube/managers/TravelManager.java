@@ -1,5 +1,8 @@
 package com.pedrorok.hypertube.managers;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
 import com.pedrorok.hypertube.HypertubeMod;
 import com.pedrorok.hypertube.blocks.HyperEntranceBlock;
 import com.pedrorok.hypertube.config.ClientConfig;
@@ -20,8 +23,6 @@ import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.HashMap;
@@ -102,7 +103,7 @@ public class TravelManager {
 
     private static boolean isTraveling;
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void clientTick(Player player) {
         if (hasHyperTubeData(player)) {
             TubeSoundManager.TravelSound.enableClientPlayerSound(player, 0.8F, 1.0F);
