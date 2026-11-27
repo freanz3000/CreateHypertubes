@@ -7,13 +7,12 @@ import com.pedrorok.hypertube.items.HypertubeItem;
 import com.zurrtum.create.foundation.data.CreateRegistrate;
 import com.zurrtum.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.item.BlockItem;
-import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import static com.zurrtum.create.foundation.data.ModelGen.customItemModel;
 import static com.zurrtum.create.foundation.data.TagGen.axeOrPickaxe;
-
 
 /**
  * @author Rok, Pedro Lucas nmm. Created on 17/04/2025
@@ -21,27 +20,25 @@ import static com.zurrtum.create.foundation.data.TagGen.axeOrPickaxe;
  */
 public class ModBlocks {
 
-    public static final AbstractBlock.Settings PROPERTIES = AbstractBlock.Settings.create()
-            .hardness(1.0f)
-            .resistance(10.0f)
-            .sounds(BlockSoundGroup.METAL)
-            .nonOpaque()
-            .blockVision((state, level, pos) -> false)
-            .suffocates((state, level, pos) -> false);
+    public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of()
+            .strength(1.0f, 10.0f)
+            .sound(SoundType.METAL)
+            .noOcclusion()
+            .isViewBlocking((state, level, pos) -> false)
+            .isSuffocating((state, level, pos) -> false);
 
     private static final CreateRegistrate REGISTRATE = HypertubeMod.get();
 
     public static final BlockEntry<HypertubeBlock> HYPERTUBE = REGISTRATE.block("hypertube", HypertubeBlock::new)
             .item(HypertubeItem::new).build()
-            .properties((a) -> PROPERTIES)
+            .properties(a -> PROPERTIES)
             .transform(axeOrPickaxe())
             .defaultBlockstate()
             .defaultLoot()
             .register();
 
     public static final BlockEntry<HyperEntranceBlock> HYPERTUBE_ENTRANCE = REGISTRATE.block("hypertube_entrance", HyperEntranceBlock::new)
-            .simpleItem()
-            .properties((a) -> PROPERTIES)
+            .properties(a -> PROPERTIES)
             .transform(axeOrPickaxe())
             .defaultBlockstate()
             .defaultLoot()
@@ -50,5 +47,6 @@ public class ModBlocks {
             .register();
 
     public static void register() {
+        // Registrate entries are registered during class initialization.
     }
 }
