@@ -12,6 +12,9 @@ repositories {
     maven { url = "https://mvn.devos.one/releases" }
     maven { url = "https://mvn.devos.one/snapshots" }
     maven { url = "https://maven.tterrag.com/" }
+    maven { url = "https://mvn.devos.one/releases" }
+    maven { url = "https://mvn.devos.one/snapshots" }
+    maven { url = "https://maven.tterrag.com/" }
     exclusiveContent {
         forRepository {
             maven {
@@ -30,6 +33,10 @@ dependencies {
 
     // Create Fly 26.3-6.0.9-2 (official Modrinth project/version coordinates).
     modImplementation "maven.modrinth:dKvj0eNn:Y5Ryytu0"
+
+    // Annotation processing used by the source (@Getter / @Setter).
+    compileOnly "org.projectlombok:lombok:1.18.42"
+    annotationProcessor "org.projectlombok:lombok:1.18.42"
 }
 
 java {
