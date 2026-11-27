@@ -1,11 +1,12 @@
 package com.pedrorok.hypertube.managers.sound;
 
+import net.minecraft.world.phys.Vec3;
+
 import lombok.Setter;
 import net.minecraft.client.sound.MovingSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.math.Vec3d;
 
 @Setter
 public class TubeSound extends MovingSoundInstance {
@@ -45,7 +46,7 @@ public class TubeSound extends MovingSoundInstance {
 		setDone();
 	}
 
-	public void updateLocation(Vec3d pos) {
+	public void updateLocation(Vec3 pos) {
 		x = pos.x;
 		y = pos.y;
 		z = pos.z;
