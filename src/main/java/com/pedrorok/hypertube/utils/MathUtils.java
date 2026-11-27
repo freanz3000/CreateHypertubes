@@ -1,6 +1,6 @@
 package com.pedrorok.hypertube.utils;
 
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.phys.Vec3;
 
 /**
  * @author Rok, Pedro Lucas nmm. Created on 08/05/2025
@@ -8,12 +8,10 @@ import net.minecraft.util.math.Vec3d;
  */
 public class MathUtils {
 
-
-    public static float getMediumSpeed(Vec3d velocity) {
+    public static float getMediumSpeed(Vec3 velocity) {
         float x = Math.abs((float) velocity.x);
         float y = Math.abs((float) velocity.y);
         float z = Math.abs((float) velocity.z);
-        float sum = x + y + z;
-        return sum / 3;
+        return (x + y + z) / 3;
     }
 }
