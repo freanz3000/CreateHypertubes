@@ -2,7 +2,7 @@ package com.pedrorok.hypertube.registry;
 
 import com.pedrorok.hypertube.HypertubeMod;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
@@ -16,10 +16,11 @@ public class ModSounds {
     public static final SoundEvent TRAVELING = register("traveling");
 
     private static SoundEvent register(String name) {
-        Identifier id = new Identifier(HypertubeMod.MOD_ID, name);
-        return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
+        Identifier id = Identifier.fromNamespaceAndPath(HypertubeMod.MOD_ID, name);
+        return Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
     }
 
     public static void register() {
+        // Static fields register the sounds when this class is initialized.
     }
 }
