@@ -107,7 +107,7 @@ public class HyperEntranceBlockEntity extends KineticBlockEntity {
     }
 
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private void tickClient() {
 
         // this is just for sound
