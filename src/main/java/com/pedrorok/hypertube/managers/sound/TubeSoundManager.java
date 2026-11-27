@@ -1,11 +1,13 @@
 package com.pedrorok.hypertube.managers.sound;
 
+import net.minecraft.world.entity.Entity;
+
+import net.minecraft.world.phys.Vec3;
+
 import com.pedrorok.hypertube.registry.ModSounds;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.Vec3d;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +42,7 @@ public class TubeSoundManager {
 
         private TubeSound travelSound;
 
-        public void enableClientPlayerSound(Entity e, Vec3d normal, double distance, boolean isOpen) {
+        public void enableClientPlayerSound(Entity e, Vec3 normal, double distance, boolean isOpen) {
             if (e != MinecraftClient.getInstance()
                     .getCameraEntity())
                 return;
