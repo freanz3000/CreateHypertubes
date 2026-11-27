@@ -12,8 +12,8 @@ import com.pedrorok.hypertube.registry.ModBlocks;
 import com.pedrorok.hypertube.registry.ModDataComponent;
 import com.pedrorok.hypertube.utils.MessageUtils;
 import com.pedrorok.hypertube.utils.RayCastUtils;
-import com.zurrtum.create.content.trains.track.TrackBlockOutline; //wrong
-import net.createmod.catnip.animation.LerpedFloat;
+import com.zurrtum.create.client.content.trains.track.TrackBlockOutline;
+import com.zurrtum.create.catnip.animation.LerpedFloat;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -162,7 +162,7 @@ public class TubePlacement {
     }
 
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public static void drawCustomBlockSelection(PoseStack ms, MultiBufferSource buffer, Vec3 camera) {
         ItemStack mainHandItem = Minecraft.getInstance().player.getMainHandItem();
         if (!mainHandItem.is(ModBlocks.HYPERTUBE.asItem())) return;
