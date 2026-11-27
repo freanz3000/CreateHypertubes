@@ -4,21 +4,14 @@ import com.pedrorok.hypertube.HypertubeMod;
 import com.pedrorok.hypertube.blocks.blockentities.HyperEntranceBlockEntity;
 import com.pedrorok.hypertube.blocks.blockentities.HypertubeBlockEntity;
 import com.pedrorok.hypertube.client.BezierTextureRenderer;
-import com.zurrtum.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
+import com.zurrtum.create.foundation.data.CreateRegistrate;
 
 /**
  * @author Rok, Pedro Lucas nmm. Created on 21/04/2025
  * @project Create Hypertube
  */
-public class ModBlockEntities {
+public final class ModBlockEntities {
     private static final CreateRegistrate REGISTRATE = HypertubeMod.get();
 
     public static final BlockEntityEntry<HyperEntranceBlockEntity> HYPERTUBE_ENTRANCE = REGISTRATE
@@ -33,5 +26,6 @@ public class ModBlockEntities {
             .register();
 
     public static void register() {
+        // Registrate entries are registered during class initialization.
     }
 }
